@@ -164,14 +164,29 @@ section{padding:72px 0;}
 .book .txt .meta{font-size:.84rem;color:var(--gray);border-top:1px solid var(--line);padding-top:12px;margin-top:16px;}
 @media(max-width:820px){.book{grid-template-columns:1fr;}.book .cover-img{max-width:240px;margin:0 auto;}}
 
-/* 책 미리보기 버튼 + 구매 문의(은은한 톤) */
-.book-actions{margin-top:18px;}
-.btn-preview{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-weight:700;font-size:.95rem;
-  padding:11px 22px;border-radius:10px;box-shadow:0 8px 20px rgba(0,78,162,.28);transition:transform .15s,background .2s;}
-.btn-preview:hover{background:var(--navy);transform:translateY(-2px);}
+/* 구매 문의(은은한 톤) */
 .buy-line{margin-top:16px;font-size:.84rem;color:var(--gray);}
 .buy-line a{color:var(--gray);border-bottom:1px dotted var(--gray);}
 .buy-line a:hover{color:var(--blue);border-bottom-color:var(--blue);}
+
+/* 책 미리보기 슬라이더 */
+.preview{margin-top:44px;text-align:center;}
+.preview-head{margin-bottom:18px;}
+.preview-head h3{font-size:1.3rem;font-weight:800;color:var(--navy);}
+.preview-sub{display:block;color:var(--gray);font-size:.92rem;margin-top:4px;}
+.viewer{display:flex;align-items:center;justify-content:center;gap:18px;}
+.pv-stage{width:360px;max-width:78vw;aspect-ratio:431/638;background:#eef1f6;border-radius:8px;overflow:hidden;
+  box-shadow:0 16px 44px rgba(10,28,68,.22);border:1px solid var(--line);}
+.pv-stage img{width:100%;height:100%;object-fit:contain;cursor:pointer;display:block;background:#fff;}
+.pv-nav{flex:0 0 auto;width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;background:var(--blue);color:#fff;
+  font-size:1.7rem;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,78,162,.4);transition:transform .15s,background .2s;}
+.pv-nav:hover{background:var(--navy);transform:scale(1.08);}
+.pv-counter{margin-top:14px;font-weight:700;color:var(--navy);font-size:.95rem;}
+.pv-counter .sep{color:var(--gray);margin:0 2px;}
+.pv-dots{display:flex;justify-content:center;gap:7px;margin-top:12px;flex-wrap:wrap;}
+.pv-dots button{width:9px;height:9px;border-radius:50%;border:none;background:var(--line);cursor:pointer;padding:0;transition:background .2s,transform .2s;}
+.pv-dots button.on{background:var(--blue);transform:scale(1.25);}
+@media(max-width:820px){.pv-nav{width:40px;height:40px;font-size:1.4rem;}.viewer{gap:8px;}}
 
 /* ===== 연락처 / 푸터 ===== */
 .contact{background:linear-gradient(135deg,#06173a,#0a1c44);color:#fff;text-align:center;}
@@ -425,13 +440,27 @@ footer b{color:#cdd9ef;}
            ‘새로운 중심’으로 세우려는 구체적 비전과 실천 방안을 담았습니다.</p>
         <p class="q2">“충주는 바뀔 수 있다. 준비된 사람이 바꾼다.”</p>
         <p class="meta">이태성 著 · 도서출판 이시도르 · 값 27,000원 · ISBN 979-11-986206-4-4</p>
-        <div class="book-actions">
-          <a class="btn-preview" href="새로운충주_미리보기.pdf" target="_blank" rel="noopener">📖 책 미리보기</a>
-        </div>
         <p class="buy-line">구매 문의 · 도서출판 이시도르 ·
           <a href="tel:010-9133-5431">010-9133-5431</a> ·
           <a href="mailto:isidor@isidor.kr">isidor@isidor.kr</a></p>
       </div>
+    </div>
+
+    <!-- 책 미리보기 슬라이더 -->
+    <div class="preview">
+      <div class="preview-head">
+        <h3>책 미리보기</h3>
+        <span class="preview-sub">좌우 버튼으로 본문을 넘겨보실 수 있습니다.</span>
+      </div>
+      <div class="viewer">
+        <button class="pv-nav prev" id="pvPrev" aria-label="이전 페이지">‹</button>
+        <div class="pv-stage">
+          <img id="pvImg" src="assets/book-preview/p01.jpg" alt="책 미리보기 페이지" onclick="window.pvNext&&window.pvNext()">
+        </div>
+        <button class="pv-nav next" id="pvNext" aria-label="다음 페이지">›</button>
+      </div>
+      <div class="pv-counter"><span id="pvCur">1</span> <span class="sep">/</span> 10</div>
+      <div class="pv-dots" id="pvDots"></div>
     </div>
   </div>
 </section>
@@ -445,7 +474,6 @@ footer b{color:#cdd9ef;}
       <div><div class="k">PHONE</div><div class="v">010-2050-0055</div></div>
       <div><div class="k">EMAIL</div><div class="v">tsleecmo@gmail.com</div></div>
     </div>
-    <a class="dl" href="이태성_프로필.pdf" download>📄 프로필 PDF 다운로드</a>
   </div>
 </section>
 
@@ -454,6 +482,35 @@ footer b{color:#cdd9ef;}
     <b>이태성</b> · 더불어민주당 · 충주 &nbsp;|&nbsp; LEE TAE SUNG Profile
   </div>
 </footer>
+
+<script>
+// 책 미리보기 슬라이더 (본문 10쪽)
+(function(){
+  var total=10, cur=1;
+  var img=document.getElementById('pvImg');
+  var lbl=document.getElementById('pvCur');
+  var dots=document.getElementById('pvDots');
+  if(!img) return;
+  for(var i=1;i<=total;i++){var p=new Image();p.src='assets/book-preview/p'+String(i).padStart(2,'0')+'.jpg';}
+  for(var j=1;j<=total;j++){(function(n){
+    var b=document.createElement('button');b.setAttribute('aria-label',n+'페이지');
+    b.onclick=function(){show(n);};dots.appendChild(b);
+  })(j);}
+  function show(n){
+    cur=((n-1)%total+total)%total+1;
+    img.src='assets/book-preview/p'+String(cur).padStart(2,'0')+'.jpg';
+    lbl.textContent=cur;
+    var ds=dots.children;for(var k=0;k<ds.length;k++)ds[k].className=(k+1===cur)?'on':'';
+  }
+  window.pvNext=function(){show(cur+1);};
+  document.getElementById('pvPrev').onclick=function(){show(cur-1);};
+  document.getElementById('pvNext').onclick=function(){show(cur+1);};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);
+  });
+  show(1);
+})();
+</script>
 
 </body>
 </html>

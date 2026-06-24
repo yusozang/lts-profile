@@ -6,35 +6,35 @@
 <style>
 :root{--navy:#0a1c44;--blue:#004ea2;--sky:#00a0e2;--green:#1a9c6b;--ink:#1c2330;--gray:#5a6577;--line:#dfe5ef;--soft:#f4f7fc;}
 @page{size:A4;margin:16mm 15mm 16mm 15mm;
-  @bottom-center{content:counter(page) "/" counter(pages);font-family:"Noto Sans KR",sans-serif;font-size:8.5pt;color:var(--blue);}
-  @bottom-right{content:"이태성 · 더불어민주당 · 충주";font-family:"Noto Sans KR",sans-serif;font-size:7.5pt;color:var(--gray);}
+  @bottom-center{content:counter(page) "/" counter(pages);font-family:"Noto Sans KR",sans-serif;font-size:11.05pt;color:var(--blue);}
+  @bottom-right{content:"이태성 · 더불어민주당 · 충주";font-family:"Noto Sans KR",sans-serif;font-size:9.75pt;color:var(--gray);}
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;font-size:10pt;line-height:1.6;color:var(--ink);}
+html{font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;font-size:13pt;line-height:1.6;color:var(--ink);}
 .cover{background:linear-gradient(135deg,#06173a 0%,#0a1c44 45%,#003a7a 100%);color:#fff;
   margin:-16mm -15mm 0 -15mm;padding:22mm 15mm 14mm;display:flex;gap:14mm;align-items:center;}
 .cover .ph{flex:0 0 38mm;}
 .cover .ph img{width:38mm;border-radius:6px;border:3px solid rgba(255,255,255,.2);}
 .cover .badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
-  padding:3px 11px;border-radius:20px;font-size:8.5pt;font-weight:700;color:#dbe8ff;margin-bottom:8px;}
-.cover h1{font-size:30pt;font-weight:900;letter-spacing:-1px;line-height:1.1;}
-.cover .en{font-size:9pt;letter-spacing:4px;color:var(--sky);margin:4px 0 10px;}
-.cover .lead{font-size:11pt;font-weight:300;color:#e7eefb;line-height:1.5;}
+  padding:3px 11px;border-radius:20px;font-size:11.05pt;font-weight:700;color:#dbe8ff;margin-bottom:8px;}
+.cover h1{font-size:39pt;font-weight:900;letter-spacing:-1px;line-height:1.1;}
+.cover .en{font-size:11.7pt;letter-spacing:4px;color:var(--sky);margin:4px 0 10px;}
+.cover .lead{font-size:14.3pt;font-weight:300;color:#e7eefb;line-height:1.5;}
 .cover .lead b{font-weight:700;color:#fff;}
-.cover .tags{margin-top:10px;font-size:8pt;color:#bcd2f0;}
+.cover .tags{margin-top:10px;font-size:10.4pt;color:#bcd2f0;}
 
-h2{font-size:13pt;font-weight:900;color:var(--navy);margin:7mm 0 3mm;padding-bottom:2mm;border-bottom:2px solid var(--blue);}
-h2 .e{font-size:7.5pt;font-weight:700;color:var(--blue);letter-spacing:2px;margin-left:6px;}
+h2{font-size:16.9pt;font-weight:900;color:var(--navy);margin:7mm 0 3mm;padding-bottom:2mm;border-bottom:2px solid var(--blue);}
+h2 .e{font-size:9.75pt;font-weight:700;color:var(--blue);letter-spacing:2px;margin-left:6px;}
 .quote{background:var(--soft);border-left:4px solid var(--sky);padding:5mm 7mm;border-radius:0 8px 8px 0;margin:4mm 0;
-  font-size:11pt;line-height:1.5;}
+  font-size:14.3pt;line-height:1.5;}
 .quote b{color:var(--blue);}
-.quote .who{display:block;margin-top:3px;font-size:8.5pt;color:var(--gray);}
+.quote .who{display:block;margin-top:3px;font-size:11.05pt;color:var(--gray);}
 
 .three{display:flex;gap:4mm;margin-top:3mm;}
 .three .it{flex:1;border:1px solid var(--line);border-radius:8px;padding:4mm;}
-.three .it .ic{font-size:14pt;}
-.three .it h3{font-size:10pt;color:var(--navy);margin:2mm 0 1mm;}
-.three .it p{font-size:8.3pt;color:var(--gray);line-height:1.45;}
+.three .it .ic{font-size:18.2pt;}
+.three .it h3{font-size:13pt;color:var(--navy);margin:2mm 0 1mm;}
+.three .it p{font-size:10.79pt;color:var(--gray);line-height:1.45;}
 .three .it.c1{border-top:3px solid var(--blue);}
 .three .it.c2{border-top:3px solid var(--green);}
 .three .it.c3{border-top:3px solid var(--sky);}
@@ -42,49 +42,53 @@ h2 .e{font-size:7.5pt;font-weight:700;color:var(--blue);letter-spacing:2px;margi
 .pol{display:flex;flex-wrap:wrap;gap:3mm;margin-top:3mm;}
 .pol .p{flex:0 0 calc(50% - 1.5mm);background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:6px;padding:3.5mm 4mm;}
 .pol .p.g{border-left-color:var(--green);}.pol .p.s{border-left-color:var(--sky);}.pol .p.n{border-left-color:var(--navy);}
-.pol .p h3{font-size:10pt;color:var(--navy);margin-bottom:1.5mm;}
+.pol .p h3{font-size:13pt;color:var(--navy);margin-bottom:1.5mm;}
 .pol .p h3 .n{color:var(--blue);font-weight:900;}
 .pol .p ul{list-style:none;}
-.pol .p li{font-size:8.3pt;color:var(--gray);padding-left:8px;position:relative;line-height:1.5;}
+.pol .p li{font-size:10.79pt;color:var(--gray);padding-left:8px;position:relative;line-height:1.5;}
 .pol .p li::before{content:"·";position:absolute;left:0;color:var(--sky);font-weight:900;}
 
 .stats{display:flex;gap:3mm;margin-top:3mm;}
 .stats .s{flex:1;text-align:center;background:var(--soft);border-radius:8px;padding:4mm 2mm;}
-.stats .s .num{font-size:17pt;font-weight:900;color:var(--blue);line-height:1;}
-.stats .s .num small{font-size:9pt;}
-.stats .s .lb{font-size:7.8pt;color:var(--gray);margin-top:2mm;line-height:1.3;}
+.stats .s .num{font-size:22.1pt;font-weight:900;color:var(--blue);line-height:1;}
+.stats .s .num small{font-size:11.7pt;}
+.stats .s .lb{font-size:10.14pt;color:var(--gray);margin-top:2mm;line-height:1.3;}
 
 .cols{display:flex;gap:8mm;margin-top:3mm;}
 .cols .c{flex:1;}
-.cols .c h3{font-size:9.5pt;color:var(--blue);font-weight:800;border-bottom:1px solid var(--line);padding-bottom:1.5mm;margin-bottom:2.5mm;}
-.row{display:flex;font-size:8.6pt;padding:1.5mm 0;border-bottom:1px dashed var(--line);}
+.cols .c h3{font-size:12.35pt;color:var(--blue);font-weight:800;border-bottom:1px solid var(--line);padding-bottom:1.5mm;margin-bottom:2.5mm;}
+.row{display:flex;font-size:11.18pt;padding:1.5mm 0;border-bottom:1px dashed var(--line);}
 .row .k{flex:0 0 22mm;color:var(--gray);font-weight:600;}
 .row .v{color:var(--ink);}
 .clist{list-style:none;}
-.clist li{font-size:8.6pt;padding:1.3mm 0 1.3mm 5mm;position:relative;line-height:1.4;}
+.clist li{font-size:11.18pt;padding:1.3mm 0 1.3mm 5mm;position:relative;line-height:1.4;}
 .clist li::before{content:"";position:absolute;left:0;top:2.6mm;width:6px;height:6px;border-radius:50%;background:#fff;border:2px solid var(--blue);}
 .clist li.cur::before{background:var(--sky);border-color:var(--sky);}
 .clist .role{font-weight:700;color:var(--ink);}
-.clist .org{display:block;font-size:7.8pt;color:var(--gray);}
-.clist .tg{font-size:6.5pt;font-weight:700;padding:0 4px;border-radius:4px;margin-left:3px;}
+.clist .org{display:block;font-size:10.14pt;color:var(--gray);}
+.clist .tg{font-size:8.45pt;font-weight:700;padding:0 4px;border-radius:4px;margin-left:3px;}
 .tg.cur{background:#e6f0fa;color:var(--blue);}.tg.past{background:#eef0f4;color:var(--gray);}
 
 .contact{margin-top:6mm;background:linear-gradient(135deg,#06173a,#0a1c44);color:#fff;border-radius:10px;padding:6mm 7mm;
   display:flex;justify-content:space-between;align-items:center;}
-.contact .t{font-size:11pt;font-weight:800;}
-.contact .t small{display:block;font-weight:300;color:#bcd2f0;font-size:8.5pt;margin-top:2px;}
-.contact .info{text-align:right;font-size:9pt;line-height:1.6;}
+.contact .t{font-size:14.3pt;font-weight:800;}
+.contact .t small{display:block;font-weight:300;color:#bcd2f0;font-size:11.05pt;margin-top:2px;}
+.contact .info{text-align:right;font-size:11.7pt;line-height:1.6;}
 .contact .info b{color:var(--sky);}
 .avoid{page-break-inside:avoid;}
 .newpage{page-break-before:always;}
 .ach{list-style:none;margin-top:3mm;}
-.ach li{font-size:9pt;color:var(--ink);padding:2.3mm 0 2.3mm 6mm;position:relative;line-height:1.55;border-bottom:1px dashed var(--line);}
+.ach li{font-size:11.7pt;color:var(--ink);padding:2.3mm 0 2.3mm 6mm;position:relative;line-height:1.55;border-bottom:1px dashed var(--line);}
 .ach li::before{content:"";position:absolute;left:0;top:3.6mm;width:7px;height:7px;border-radius:50%;background:var(--blue);}
 .ach li b{color:var(--navy);}
 .phil{margin-top:3mm;}
-.phil p{font-size:9pt;color:var(--gray);line-height:1.65;margin-bottom:3mm;}
+.phil p{font-size:11.7pt;color:var(--gray);line-height:1.65;margin-bottom:3mm;}
 .phil p b{color:var(--navy);}
-.phil .pq{color:var(--blue);font-weight:700;font-size:10.5pt;border-left:3px solid var(--sky);padding-left:4mm;margin:4mm 0;line-height:1.5;}
+.phil .pq{color:var(--blue);font-weight:700;font-size:13.65pt;border-left:3px solid var(--sky);padding-left:4mm;margin:4mm 0;line-height:1.5;}
+.sec-lead{font-size:11.96pt;color:var(--gray);line-height:1.6;margin:1mm 0 3.5mm;}
+.sec-lead b{color:var(--navy);}
+.note{margin-top:5mm;background:var(--soft);border-left:3px solid var(--sky);border-radius:0 8px 8px 0;padding:4mm 5mm;font-size:11.7pt;color:var(--ink);line-height:1.65;}
+.note b{color:var(--blue);}
 </style>
 </head>
 <body>
@@ -115,7 +119,12 @@ h2 .e{font-size:7.5pt;font-weight:700;color:var(--blue);letter-spacing:2px;margi
     <p>충주 토박이. 오창과학산업단지 1급 본부장으로 청년친화형 산단 지정과 환경개선펀드 300억 원 유치.</p></div>
 </div>
 
+<div class="note"><b>1969년 충주에서 나고 자란</b> 그는 서울에서 기업·금융·교육 현장을 거친 뒤 고향으로 돌아왔다.
+  반도체 대기업과 거점 산업단지, 대학 강단과 정당을 오가며 쌓은 경험을 충주의 산업·일자리·환경을 잇는
+  구조적 해법으로 연결해 왔다.</div>
+
 <h2>충주 미래경제 4대 전략 <span class="e">POLICY VISION</span></h2>
+<p class="sec-lead">단순한 공장 유치를 넘어, 네 개의 축으로 충주를 <b>중부내륙권 미래산업 중심도시</b>로 전환한다.</p>
 <div class="pol avoid">
   <div class="p g"><h3><span class="n">01</span> 순환경제 도시</h3>
     <ul><li>폐플라스틱 자원순환 산업 육성</li><li>폐배터리 재활용 산업 거점화</li><li>도시광산 산업 조성</li></ul></div>
@@ -135,7 +144,11 @@ h2 .e{font-size:7.5pt;font-weight:700;color:var(--blue);letter-spacing:2px;margi
   <div class="s"><div class="num">충주</div><div class="lb">나고 자란<br>지역 기반</div></div>
 </div>
 
+<div class="note">기업 실무와 거점 산업단지 운영, 국가 균형발전 정책 검토를 두루 경험한 이력이
+  <b>정책을 현실로 옮기는 추진력</b>의 바탕이 된다.</div>
+
 <h2>약력 <span class="e">CAREER</span></h2>
+<p class="sec-lead">기업 실무에서 출발해 공공·학계·정당으로 이어진 경력이 <b>정책 전문성과 현장 감각</b>의 토대가 되었다.</p>
 <div class="cols avoid">
   <div class="c">
     <h3>기본 정보 · 학력</h3>
