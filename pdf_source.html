@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- 이태성 프로필 PDF 인쇄용 소스 (민주당 블루 테마, A4) -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<style>
+:root{--navy:#0a1c44;--blue:#004ea2;--sky:#00a0e2;--green:#1a9c6b;--ink:#1c2330;--gray:#5a6577;--line:#dfe5ef;--soft:#f4f7fc;}
+@page{size:A4;margin:16mm 15mm 16mm 15mm;
+  @bottom-center{content:counter(page) "/" counter(pages);font-family:"Noto Sans KR",sans-serif;font-size:8.5pt;color:var(--blue);}
+  @bottom-right{content:"이태성 · 더불어민주당 · 충주";font-family:"Noto Sans KR",sans-serif;font-size:7.5pt;color:var(--gray);}
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;font-size:10pt;line-height:1.6;color:var(--ink);}
+.cover{background:linear-gradient(135deg,#06173a 0%,#0a1c44 45%,#003a7a 100%);color:#fff;
+  margin:-16mm -15mm 0 -15mm;padding:22mm 15mm 14mm;display:flex;gap:14mm;align-items:center;}
+.cover .ph{flex:0 0 38mm;}
+.cover .ph img{width:38mm;border-radius:6px;border:3px solid rgba(255,255,255,.2);}
+.cover .badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
+  padding:3px 11px;border-radius:20px;font-size:8.5pt;font-weight:700;color:#dbe8ff;margin-bottom:8px;}
+.cover h1{font-size:30pt;font-weight:900;letter-spacing:-1px;line-height:1.1;}
+.cover .en{font-size:9pt;letter-spacing:4px;color:var(--sky);margin:4px 0 10px;}
+.cover .lead{font-size:11pt;font-weight:300;color:#e7eefb;line-height:1.5;}
+.cover .lead b{font-weight:700;color:#fff;}
+.cover .tags{margin-top:10px;font-size:8pt;color:#bcd2f0;}
+
+h2{font-size:13pt;font-weight:900;color:var(--navy);margin:7mm 0 3mm;padding-bottom:2mm;border-bottom:2px solid var(--blue);}
+h2 .e{font-size:7.5pt;font-weight:700;color:var(--blue);letter-spacing:2px;margin-left:6px;}
+.quote{background:var(--soft);border-left:4px solid var(--sky);padding:5mm 7mm;border-radius:0 8px 8px 0;margin:4mm 0;
+  font-size:11pt;line-height:1.5;}
+.quote b{color:var(--blue);}
+.quote .who{display:block;margin-top:3px;font-size:8.5pt;color:var(--gray);}
+
+.three{display:flex;gap:4mm;margin-top:3mm;}
+.three .it{flex:1;border:1px solid var(--line);border-radius:8px;padding:4mm;}
+.three .it .ic{font-size:14pt;}
+.three .it h3{font-size:10pt;color:var(--navy);margin:2mm 0 1mm;}
+.three .it p{font-size:8.3pt;color:var(--gray);line-height:1.45;}
+.three .it.c1{border-top:3px solid var(--blue);}
+.three .it.c2{border-top:3px solid var(--green);}
+.three .it.c3{border-top:3px solid var(--sky);}
+
+.pol{display:flex;flex-wrap:wrap;gap:3mm;margin-top:3mm;}
+.pol .p{flex:0 0 calc(50% - 1.5mm);background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:6px;padding:3.5mm 4mm;}
+.pol .p.g{border-left-color:var(--green);}.pol .p.s{border-left-color:var(--sky);}.pol .p.n{border-left-color:var(--navy);}
+.pol .p h3{font-size:10pt;color:var(--navy);margin-bottom:1.5mm;}
+.pol .p h3 .n{color:var(--blue);font-weight:900;}
+.pol .p ul{list-style:none;}
+.pol .p li{font-size:8.3pt;color:var(--gray);padding-left:8px;position:relative;line-height:1.5;}
+.pol .p li::before{content:"·";position:absolute;left:0;color:var(--sky);font-weight:900;}
+
+.stats{display:flex;gap:3mm;margin-top:3mm;}
+.stats .s{flex:1;text-align:center;background:var(--soft);border-radius:8px;padding:4mm 2mm;}
+.stats .s .num{font-size:17pt;font-weight:900;color:var(--blue);line-height:1;}
+.stats .s .num small{font-size:9pt;}
+.stats .s .lb{font-size:7.8pt;color:var(--gray);margin-top:2mm;line-height:1.3;}
+
+.cols{display:flex;gap:8mm;margin-top:3mm;}
+.cols .c{flex:1;}
+.cols .c h3{font-size:9.5pt;color:var(--blue);font-weight:800;border-bottom:1px solid var(--line);padding-bottom:1.5mm;margin-bottom:2.5mm;}
+.row{display:flex;font-size:8.6pt;padding:1.5mm 0;border-bottom:1px dashed var(--line);}
+.row .k{flex:0 0 22mm;color:var(--gray);font-weight:600;}
+.row .v{color:var(--ink);}
+.clist{list-style:none;}
+.clist li{font-size:8.6pt;padding:1.3mm 0 1.3mm 5mm;position:relative;line-height:1.4;}
+.clist li::before{content:"";position:absolute;left:0;top:2.6mm;width:6px;height:6px;border-radius:50%;background:#fff;border:2px solid var(--blue);}
+.clist li.cur::before{background:var(--sky);border-color:var(--sky);}
+.clist .role{font-weight:700;color:var(--ink);}
+.clist .org{display:block;font-size:7.8pt;color:var(--gray);}
+.clist .tg{font-size:6.5pt;font-weight:700;padding:0 4px;border-radius:4px;margin-left:3px;}
+.tg.cur{background:#e6f0fa;color:var(--blue);}.tg.past{background:#eef0f4;color:var(--gray);}
+
+.contact{margin-top:6mm;background:linear-gradient(135deg,#06173a,#0a1c44);color:#fff;border-radius:10px;padding:6mm 7mm;
+  display:flex;justify-content:space-between;align-items:center;}
+.contact .t{font-size:11pt;font-weight:800;}
+.contact .t small{display:block;font-weight:300;color:#bcd2f0;font-size:8.5pt;margin-top:2px;}
+.contact .info{text-align:right;font-size:9pt;line-height:1.6;}
+.contact .info b{color:var(--sky);}
+.avoid{page-break-inside:avoid;}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="ph"><img src="assets/portrait.png" alt="이태성"></div>
+  <div>
+    <span class="badge">● 더불어민주당 · 충주</span>
+    <h1>이 태 성</h1>
+    <div class="en">LEE TAE SUNG · 李太成</div>
+    <div class="lead">기업 현장과 공공정책을 두루 거친 <b>경제·산업 정책 전문가</b>.<br>
+      충주를 기반으로 <b>순환경제와 지속가능한 성장</b>을 설계합니다.</div>
+    <div class="tags">#더불어민주당  #충주  #순환경제  #경제정책  #ESG  #지역균형발전</div>
+  </div>
+</div>
+
+<div class="quote avoid">“정치란 결국 <b>사람을 연결하고, 공간을 바꾸는 일</b>입니다.
+  산업과 일자리, 환경이 조화를 이루는 <b>지속가능한 충주</b>를 만들겠습니다.”
+  <span class="who">— 이태성</span></div>
+
+<h2>세 가지 정체성 <span class="e">CORE STRENGTH</span></h2>
+<div class="three avoid">
+  <div class="it c1"><div class="ic">◆</div><h3>더불어민주당 정치인</h3>
+    <p>국가균형발전특별위원회 부위원장, 충청북도당 부위원장, 더민주전국혁신회의 충북 공동대표. 제20대 대선 정책소통단 부단장.</p></div>
+  <div class="it c2"><div class="ic">♻</div><h3>순환경제·경제정책 전문가</h3>
+    <p>충북대 대학원 순환경제융합학 겸임교수, 한국ESG협회 부회장. 자원 안보와 순환경제를 결합한 산업 전략을 설계.</p></div>
+  <div class="it c3"><div class="ic">⌂</div><h3>충주 지역 기반</h3>
+    <p>충주 토박이. 오창과학산업단지 1급 본부장으로 청년친화형 산단 지정과 환경개선펀드 300억 원 유치.</p></div>
+</div>
+
+<h2>충주 미래경제 4대 전략 <span class="e">POLICY VISION</span></h2>
+<div class="pol avoid">
+  <div class="p g"><h3><span class="n">01</span> 순환경제 도시</h3>
+    <ul><li>폐플라스틱 자원순환 산업 육성</li><li>폐배터리 재활용 산업 거점화</li><li>도시광산 산업 조성</li></ul></div>
+  <div class="p"><h3><span class="n">02</span> RE100 산업도시</h3>
+    <ul><li>수력·태양광 연계 재생에너지</li><li>ESS 인프라 확충</li><li>입주기업 RE100 전환 지원</li></ul></div>
+  <div class="p s"><h3><span class="n">03</span> 에너지 자립도시</h3>
+    <ul><li>수소 생산·활용 생태계</li><li>소수력 등 분산형 에너지</li><li>에너지 자립형 산업단지</li></ul></div>
+  <div class="p n"><h3><span class="n">04</span> 첨단산업 유치</h3>
+    <ul><li>AI 데이터센터 유치</li><li>첨단소재·반도체 후공정</li><li>국가산업단지·국책사업 발굴</li></ul></div>
+</div>
+
+<h2>숫자로 보는 이태성 <span class="e">KEY RECORD</span></h2>
+<div class="stats avoid">
+  <div class="s"><div class="num">300<small>억</small></div><div class="lb">산업부 환경개선펀드<br>공모 선정</div></div>
+  <div class="s"><div class="num">1<small>급</small></div><div class="lb">오창산단 관리공단<br>본부장</div></div>
+  <div class="s"><div class="num">30<small>년+</small></div><div class="lb">기업·공공·정책<br>현장 경험</div></div>
+  <div class="s"><div class="num">충주</div><div class="lb">나고 자란<br>지역 기반</div></div>
+</div>
+
+<h2>약력 <span class="e">CAREER</span></h2>
+<div class="cols avoid">
+  <div class="c">
+    <h3>기본 정보 · 학력</h3>
+    <div class="row"><span class="k">성명</span><span class="v">이태성 (李太成) · Lee Tae Sung</span></div>
+    <div class="row"><span class="k">출생</span><span class="v">1969년 · 충북 충주시</span></div>
+    <div class="row"><span class="k">소속 정당</span><span class="v">더불어민주당</span></div>
+    <ul class="clist" style="margin-top:3mm;">
+      <li><span class="role">청주대학교 대학원</span><span class="org">경영학 마케팅 석사 · 박사 수료</span></li>
+      <li><span class="role">청주대학교 법학과</span><span class="org">법학 학사</span></li>
+      <li><span class="role">충주 대원고등학교</span><span class="org">졸업</span></li>
+    </ul>
+  </div>
+  <div class="c">
+    <h3>주요 경력</h3>
+    <ul class="clist">
+      <li class="cur"><span class="role">충북대 대학원 순환경제융합학 겸임교수<span class="tg cur">현</span></span></li>
+      <li class="cur"><span class="role">민주당 국가균형발전특위 부위원장<span class="tg cur">현</span></span></li>
+      <li class="cur"><span class="role">민주당 충청북도당 부위원장<span class="tg cur">현</span></span></li>
+      <li class="cur"><span class="role">(사)한국ESG협회 부회장<span class="tg cur">현</span></span></li>
+      <li class="cur"><span class="role">더민주전국혁신회의 충북 공동대표<span class="tg cur">현</span></span></li>
+      <li><span class="role">제20대 대선 총괄선대위 정책소통단 부단장<span class="tg past">전</span></span></li>
+      <li><span class="role">오창과학산업단지 관리공단 1급 본부장<span class="tg past">전</span></span><span class="org">청년친화형 산단 지정 · 환경개선펀드 300억 유치</span></li>
+      <li><span class="role">SK하이닉스(현대전자) 반도체사업본부 마케팅부<span class="tg past">전</span></span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="contact avoid">
+  <div class="t">함께 충주의 미래를 설계합니다<small>정책 제안·협력·소통을 환영합니다</small></div>
+  <div class="info">☎ <b>010-2050-0055</b><br>✉ <b>tsleecmo@gmail.com</b><br>📍 충북 충주시</div>
+</div>
+
+</body>
+</html>
